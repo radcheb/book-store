@@ -1,0 +1,13 @@
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+flask = "*"
+connexion = "*"
+swagger-ui-bundle = "*"
+
+[dev-packages]
+pytest = "*"
+twine = "*"
