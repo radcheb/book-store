@@ -1,11 +1,11 @@
 from setuptools import setup
 
-setup(name='best_book_store',
-      version='0.0.2',
-      description='The best book store management system',
+setup(name='people-rest-api',
+      version='0.0.1',
+      description='Python REST APIs With Flask, Connexion, and SQLAlchemy',
       url='https://github.com/radcheb/book-store',
       author='radcheb',
       author_email='radcheb@example.com',
       license='MIT',
-      packages=['best_book_store'],
+      packages=['people_rest_api'],
       zip_safe=False)
