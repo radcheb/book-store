@@ -7,7 +7,13 @@ requests = "*"
 flask = "*"
 connexion = "*"
 swagger-ui-bundle = "*"
+flask-sqlalchemy = "==2.1.0"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+marshmallow = "*"
+install = "*"
 
 [dev-packages]
 pytest = "*"
 twine = "*"
+ipython = "*"
