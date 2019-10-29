@@ -43,6 +43,9 @@ paths:
                   type: string
                 timestamp:
                   type: string
+                person_id:
+                  type: string
+                  description: Id of the person
 
     post:
       operationId: people_rest_api.people.create
@@ -68,7 +71,7 @@ paths:
         201:
           description: Successfully created person in list
 
-  /people/{lname}:
+  /people/{person_id}:
     get:
       operationId: people_rest_api.people.read_one
       tags:
@@ -76,16 +79,19 @@ paths:
       summary: Read one person from the people list
       description: Read one person from the people list
       parameters:
-        - name: lname
+        - name: person_id
           in: path
-          description: Last name of the person to get from the list
-          type: string
+          description: Id of the person to get
+          type: integer
           required: True
       responses:
         200:
           description: Successfully read person from people list operation
           schema:
             properties:
+              person_id:
+                type: string
+                description: Id of the person
               fname:
                 type: string
               lname:
@@ -100,10 +106,10 @@ paths:
       summary: Update a person in the people list
       description: Update a person in the people list
       parameters:
-        - name: lname
+        - name: person_id
           in: path
-          description: Last name of the person to update in the list
-          type: string
+          description: Id of the person to delete
+          type: integer
           required: True
         - name: person
           in: body
@@ -112,11 +118,27 @@ paths:
             properties:
               fname:
                 type: string
+                description: First name of the person
               lname:
                 type: string
+                description: Last name of the person
       responses:
         200:
           description: Successfully updated person in people list
+          schema:
+            properties:
+              person_id:
+                type: string
+                description: Id of the person in the database
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
 
     delete:
       operationId: people_rest_api.people.delete
@@ -125,9 +147,10 @@ paths:
       summary: Delete a person from the people list
       description: Delete a person
       parameters:
-        - name: lname
+        - name: person_id
           in: path
-          type: string
+          description: Id of the person to delete
+          type: integer
           required: True
       responses:
         200:
